@@ -7,10 +7,8 @@ interface PlaygroundProps {
 }
 
 export const Playground: React.FC<PlaygroundProps> = ({ initialCode = '' }) => {
-  const defaultCode = `// --- Python 代码练习场 (JavaScript 模拟环境) ---\n// 这里可以测试基础逻辑。\n// 提示：为了模拟 Python 的 print，请使用 print() 函数。\n\nlet score = 85;\nlet result = "";\n\nif (score >= 60) {\n    result = "及格";\n} else {\n    result = "不及格";\n}\n\nprint("分数:", score);\nprint("结果:", result);\n\n// 计算 1 到 10 的和\nlet sum = 0;\nfor(let i=1; i<=10; i++) {\n    sum += i;\n}\nprint("1到10的累加和:", sum);`;
   
-  // Note: Since we are using Gemini to simulate Python, we should actually default to Python code syntax, not JS.
-  // Updating default code to be Python.
+  // Note: Since we are using Gemini to simulate Python, we should actually default to Python code syntax.
   const defaultPythonCode = `# --- Python 交互式演练场 ---
 # 你可以在这里编写任何 Python 代码进行实验
 # 注意：这是沙箱环境，无法联网或访问本地文件
@@ -67,7 +65,7 @@ for i in range(1, 6):
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5 text-slate-400">
             <span className="text-green-500 font-mono font-bold text-lg">›_</span>
-            <span className="text-xs font-bold tracking-wide uppercase">Python 3.12 Kernel</span>
+            <span className="text-xs font-bold tracking-wide uppercase">Python 3.12 内核</span>
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -98,7 +96,7 @@ for i in range(1, 6):
             `}
           >
             {isRunning ? <Loader2 className="animate-spin" size={14} /> : <Play size={14} fill="currentColor" />}
-            {isRunning ? '运行中...' : 'RUN CODE'}
+            {isRunning ? '运行中...' : '运行代码'}
           </button>
         </div>
       </div>
@@ -119,7 +117,7 @@ for i in range(1, 6):
         {/* Output Area */}
         <div className="flex flex-col bg-[#020408] relative">
           <div className="absolute top-0 left-0 right-0 px-4 py-1 bg-slate-900/50 border-b border-slate-800/50 text-[10px] font-bold text-slate-500 uppercase tracking-wider z-10">
-            CONSOLE OUTPUT
+            控制台输出 (Console)
           </div>
           <div className="p-4 pt-8 font-mono text-sm flex-grow overflow-auto h-full custom-scrollbar">
             {isRunning ? (
@@ -130,7 +128,7 @@ for i in range(1, 6):
             ) : output !== null ? (
               <div className="animate-in fade-in duration-200">
                   <pre className={`whitespace-pre-wrap break-words font-mono ${isError ? 'text-red-400' : 'text-slate-300'}`}>
-                    {isError && <span className="text-red-500 font-bold block mb-1">RUNTIME ERROR:</span>}
+                    {isError && <span className="text-red-500 font-bold block mb-1">运行时错误 (RUNTIME ERROR):</span>}
                     {output || <span className="text-slate-600 italic opacity-50">程序执行成功 (无输出)。</span>}
                   </pre>
                   {!isError && output && <div className="mt-4 text-green-500/30 text-xs">Process finished with exit code 0</div>}

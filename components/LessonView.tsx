@@ -16,7 +16,7 @@ export const LessonView: React.FC<LessonViewProps> = ({ node }) => {
       <div className="mb-6">
         <div className="flex items-center gap-2 text-primary-500 mb-3 text-xs font-bold tracking-widest uppercase">
           <BookOpen size={14} />
-          <span>当前模块 (Module)</span>
+          <span>当前模块</span>
         </div>
         <h1 className="text-3xl lg:text-4xl font-bold text-slate-100 mb-4 leading-tight">{node.title}</h1>
         <div className="prose prose-invert prose-slate max-w-none">
@@ -57,7 +57,7 @@ export const LessonView: React.FC<LessonViewProps> = ({ node }) => {
                 <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
                     <span className="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
-                    <span className="text-[10px] text-slate-500 font-bold tracking-wider ml-1">只读示例 (READ ONLY)</span>
+                    <span className="text-[10px] text-slate-500 font-bold tracking-wider ml-1">只读示例</span>
                 </div>
             </div>
             <div className="relative">
@@ -81,7 +81,7 @@ export const LessonView: React.FC<LessonViewProps> = ({ node }) => {
         <div className="h-px bg-slate-800 flex-grow"></div>
         <div className="flex items-center gap-2 text-primary-400">
             <Terminal size={18} />
-            <span className="font-bold text-sm tracking-wider uppercase">代码演练场 (Interactive Lab)</span>
+            <span className="font-bold text-sm tracking-wider uppercase">代码演练场</span>
         </div>
         <div className="h-px bg-slate-800 flex-grow"></div>
       </div>

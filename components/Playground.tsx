@@ -9,9 +9,9 @@ interface PlaygroundProps {
 export const Playground: React.FC<PlaygroundProps> = ({ initialCode = '' }) => {
   
   // Note: Since we are using Gemini to simulate Python, we should actually default to Python code syntax.
-  const defaultPythonCode = `# --- Python 交互式演练场 ---
-# 你可以在这里编写任何 Python 代码进行实验
-# 注意：这是沙箱环境，无法联网或访问本地文件
+  const defaultPythonCode = `# --- Python AI 仿真环境 ---
+# 你可以在这里编写 Python 代码进行实验
+# 代码将由云端 AI 模型模拟执行
 
 score = 85
 
@@ -65,7 +65,7 @@ for i in range(1, 6):
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5 text-slate-400">
             <span className="text-green-500 font-mono font-bold text-lg">›_</span>
-            <span className="text-xs font-bold tracking-wide uppercase">Python 3.12 内核</span>
+            <span className="text-xs font-bold tracking-wide uppercase">Python 3.12 模拟内核</span>
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -117,7 +117,7 @@ for i in range(1, 6):
         {/* Output Area */}
         <div className="flex flex-col bg-[#020408] relative">
           <div className="absolute top-0 left-0 right-0 px-4 py-1 bg-slate-900/50 border-b border-slate-800/50 text-[10px] font-bold text-slate-500 uppercase tracking-wider z-10">
-            控制台输出 (Console)
+            控制台输出
           </div>
           <div className="p-4 pt-8 font-mono text-sm flex-grow overflow-auto h-full custom-scrollbar">
             {isRunning ? (
@@ -128,7 +128,7 @@ for i in range(1, 6):
             ) : output !== null ? (
               <div className="animate-in fade-in duration-200">
                   <pre className={`whitespace-pre-wrap break-words font-mono ${isError ? 'text-red-400' : 'text-slate-300'}`}>
-                    {isError && <span className="text-red-500 font-bold block mb-1">运行时错误 (RUNTIME ERROR):</span>}
+                    {isError && <span className="text-red-500 font-bold block mb-1">运行时错误 (Runtime Error):</span>}
                     {output || <span className="text-slate-600 italic opacity-50">程序执行成功 (无输出)。</span>}
                   </pre>
                   {!isError && output && <div className="mt-4 text-green-500/30 text-xs">Process finished with exit code 0</div>}

@@ -13,7 +13,7 @@ if (apiKey) {
 export const executePythonCode = async (code: string): Promise<ExecutionResult> => {
   if (!ai) {
     return {
-      output: "错误: 未在环境变量中找到 API Key。无法运行模拟环境。",
+      output: "系统提示: 未检测到 API 密钥 (API Key)。\n\n如果您是开发者，请检查环境变量配置。\n若部署在 Vercel，请在 Settings > Environment Variables 中添加 'API_KEY'。\n\n(本地开发请确保 .env 文件已配置)",
       isError: true
     };
   }
@@ -54,7 +54,7 @@ export const executePythonCode = async (code: string): Promise<ExecutionResult> 
   } catch (error) {
     console.error("Gemini execution error:", error);
     return {
-      output: "系统错误: 无法连接到执行引擎，请稍后再试。",
+      output: "系统错误: 无法连接到 AI 执行引擎，请检查网络或 API 配额。",
       isError: true
     };
   }
